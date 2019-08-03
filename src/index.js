@@ -5,12 +5,14 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-//import { Provider } from 'react-redux';
 import { Provider } from 'react-redux'
+import movieFormReducer from './reducers/movieForm.js'
+import moviesReducer from './reducers/movies.js'
 
-const movies = () => []
+
 const reducer = combineReducers({
-  movies
+  movies: moviesReducer,
+  movieForm: movieFormReducer
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
