@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import MovieCard from './MovieCard';
 
-class Movies extends Component {
-
-  render() {
-    return (
-      <div>
-        This is the Movies Component!
-        <MovieCard />
-      </div>
-    )
-  }
+const Movies = (props) => {
+  
+  return (
+    <div>
+      This is the Movies Component!
+      <MovieCard />
+    </div>
+  )  
 }
 
 export default Movies
