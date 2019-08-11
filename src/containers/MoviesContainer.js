@@ -16,7 +16,7 @@ class MoviesContainer extends Component {
       <div>
         This is the Movies Container!
         <MovieForm />
-        <Movies />
+        <Movies movies={this.props.movies}/>
       </div>
     )
   }
