@@ -3,9 +3,10 @@ import MovieCard from './MovieCard';
 
 const Movies = (props) => {
   
+  
   return (
     <div>
-      This is the Movies Component!
+      {props.movies.map(movie => <li key={movie.id}>{movie.attributes.title}</li>)}
       <MovieCard />
     </div>
   )  
