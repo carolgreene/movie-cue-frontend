@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-//import {addMovie} from '.../actions/addMovie'
-
+import {addMovie} from '../../actions/addMovie'  //had to do like this (../../) bc MovieForm is in  
+                                                 //movies folder inside of the components folder
 
 class MovieForm extends Component {
   
@@ -21,7 +21,8 @@ class MovieForm extends Component {
   }                                             //key a name of event.target.name 
   
   handleSubmit = (event) => {
-    debugger;
+    event.preventDefault()
+    this.props.addMovie(this.state)  //local state
   }
 
   render() {
@@ -65,4 +66,4 @@ class MovieForm extends Component {
   }
 }
 
-export default connect(null)(MovieForm)
+export default connect(null, {addMovie})(MovieForm)
