@@ -1,4 +1,4 @@
-export const addMovie = (data) => {
+export const addMovie = (dispatch) => {
 
   return (dispatch)
 }
