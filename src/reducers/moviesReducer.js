@@ -6,6 +6,9 @@ export default function moviesReducer(state = initialState, action) {
     case 'FETCH_MOVIES':
       return {movies: action.payload}
 
+    case 'ADD_MOVIE':
+      return {...state, movies: [...state.movies, action.payload]}
+
     default:
       return state
   }
