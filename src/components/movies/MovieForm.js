@@ -9,6 +9,7 @@ class MovieForm extends Component {
     title: '', 
     genre: '', 
     rating: '', 
+    runtime: '',
     description: ''
   }
 
@@ -23,6 +24,13 @@ class MovieForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault()
     this.props.addMovie(this.state)  //local state
+    this.setState({
+      title: '', 
+      genre: '', 
+      rating: '', 
+      runtime: '',
+      description: ''
+    })
   }
 
   render() {
@@ -49,6 +57,13 @@ class MovieForm extends Component {
             name="rating"
             placeholder="rating"
             value={this.state.rating}
+            onChange={this.handleChange}
+          /><br/>
+          <input 
+            type="text"
+            name="runtime"
+            placeholder="runtime"
+            value={this.state.runtime}
             onChange={this.handleChange}
           /><br/>
           <input
