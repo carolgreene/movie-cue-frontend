@@ -8,6 +8,7 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux'
 //import movieForm from './reducers/movieForm.js'
 import moviesReducer from './reducers/moviesReducer.js'
+import {BrowserRouter as Router} from 'react-router-dom'
 
 
 //const reducer = combineReducers({
@@ -21,7 +22,9 @@ const store = createStore(moviesReducer, composeEnhancer(applyMiddleware(thunk))
 
 ReactDOM.render(
 <Provider store={ store }>
-  <App />
+  <Router>
+    <App />
+  </Router>
 </Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
