@@ -1,4 +1,5 @@
 import React from 'react';
+import {Route, Link} from 'react-router-dom'
 import MovieCard from './MovieCard';
 
 const Movies = (props) => {
@@ -7,7 +8,9 @@ const Movies = (props) => {
   return (
     <div>
       {props.movies.map(movie => 
-        <div key={movie.id}><MovieCard movie={movie}/></div>)}
+        <li key={movie.id}>
+          <Link to={`/movies/${movie.id}`}>{movie.attributes.title}</Link>
+        </li>)}
       
     </div>
   )  
