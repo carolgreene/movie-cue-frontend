@@ -1,14 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class MovieCard extends Component {
+const MovieCard = (props) => {
+  console.log(props)
 
-  render() {
-    return (
-      <div>
-        Individual Movie Info!!
-      </div>
-    )
-  }
+  let movie = props.movies[props.match.params.id - 1]
+  console.log(movie)
+
+  return (
+    
+    <div>
+      {movie ? movie.attributes.title : null}
+    </div>
+  )
+  
 }
 
 export default MovieCard
