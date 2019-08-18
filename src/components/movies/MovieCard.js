@@ -9,9 +9,10 @@ const MovieCard = (props) => {
 
   return (
     <div>
-    <h2>
-      {movie ? movie.attributes.title : null}
-    </h2>
+    <h2>{movie ? movie.attributes.title : null}</h2>
+    <li>{movie ? movie.attributes.rating : null}</li>
+    <li>{movie ? movie.attributes.runtime  : null}</li>
+    <li>{movie ? movie.attributes.description : null}</li>
     <ReviewsContainer />
     </div>
   )
