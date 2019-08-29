@@ -21,6 +21,18 @@ export default function moviesReducer(state = initialState, action) {
         }
       })
       return {...state, movies: movies}
+
+      case 'DELETE_REVIEW':
+      debugger
+      let moviesDelete = state.movies.map(movie => {
+        if (movie.id === action.payload.id) {
+          return action.payload
+        } else {
+          return movie
+        }
+      })
+      return {...state, movies: moviesDelete}
+
     default:
       return state
   }
