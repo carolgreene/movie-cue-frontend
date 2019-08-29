@@ -7,7 +7,7 @@ class ReviewsContainer extends Component {
   render() {
     return (
       <div>
-        <Reviews reviews={this.props.movie && this.props.movie.attributes.reviews}/>
+        <Reviews reviews={this.props.movie && this.props.movie.attributes.reviews} movie={this.props.movie}/>
         <ReviewForm movie={this.props.movie}/>
       </div>
     )
