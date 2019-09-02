@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import {addMovie} from '../../actions/addMovie'  //had to do like this (../../) bc MovieForm is in  
-                                                 //movies folder inside of the components folder
-
-class MovieForm extends Component {
+                                                 //movies folder inside of the component
+                                                 
+                                   
+ class MovieForm extends Component {
   
   state = {
     title: '', 
@@ -12,18 +13,18 @@ class MovieForm extends Component {
     runtime: '',
     description: ''
   }
-
   
 
-  handleChange = (event) => {
+  handleChange = (event) => {   
     this.setState({
       [event.target.name]: event.target.value    //need brackets bc it will read the key forthe object 
-    })                                           //& set the value for it. w/o brackets it assigns the
-  }                                             //key a name of event.target.name 
+    })                                           //& set the value for it. w/o brackets it assigns the      
+  }                                               //key a name of event.target.name 
+                                               
   
   handleSubmit = (event) => {
     event.preventDefault()
-    this.props.addMovie(this.state)  //local state
+    this.props.addMovie(this.state, this.props.history)  //local state
     this.setState({
       title: '', 
       genre: '', 
@@ -31,6 +32,7 @@ class MovieForm extends Component {
       runtime: '',
       description: ''
     })
+    
   }
 
   render() {
@@ -82,3 +84,7 @@ class MovieForm extends Component {
 }
 
 export default connect(null, {addMovie})(MovieForm)
+
+
+
+
