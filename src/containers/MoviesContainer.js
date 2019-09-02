@@ -17,7 +17,7 @@ class MoviesContainer extends Component {
     return (
       <div>     
         <Switch>   {/* will match only the 1st matching route, not multiple routes. :id must be below new*/}
-          <Route path='/movies/new' component={MovieForm}/>  
+          <Route path='/movies/new' component={MovieForm}/>  {/*router props are automatically passed when you use component*/}
           <Route path='/movies/:id' render={(routerProps) => <MovieCard {...routerProps} movies={this.props.movies}/>}/>      
           <Route exact path='/movies' render={(routerProps) => <Movies {...routerProps} movies={this.props.movies}/>}/>
         </Switch>
