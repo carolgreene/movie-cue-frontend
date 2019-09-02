@@ -7,16 +7,7 @@ import { connect } from 'react-redux'  //will go wherever we need to have access
 
 class App extends React.Component {
 
-  componentDidMount() {
-    
-    //fetch('http://10.0.0.99:3001/api/v1/movies/2')
-   
-    //  .then(r => r.json())
-      //.then(data => console.log(data.data.attributes.reviews[0]))
-    //  .then(data => console.log(data.data.attributes.title))
-  }
-
-
+  
   
   render() {
   return (
