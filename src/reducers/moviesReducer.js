@@ -7,12 +7,11 @@ export default function moviesReducer(state = initialState, action) {
       return {movies: action.payload}
 
     case 'ADD_MOVIE':
-    console.log(action.payload)
+    console.log("reducer:", action.payload)
       return {...state, movies: [...state.movies, action.payload]}
 
     case 'ADD_REVIEW':
-    //debugger  
-      console.log("reducer-add review", action.payload)
+    console.log("reducer-add review:", action.payload)
       let movies = state.movies.map(movie => {
         if (movie.id === action.payload.id) {
           return action.payload
@@ -23,7 +22,6 @@ export default function moviesReducer(state = initialState, action) {
       return {...state, movies: movies}
 
       case 'DELETE_REVIEW':
-      debugger
       let moviesDelete = state.movies.map(movie => {
         if (movie.id === action.payload.id) {
           return action.payload
