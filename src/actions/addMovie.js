@@ -1,5 +1,5 @@
-export const addMovie = (data) => {
-    //console.log(data)
+export const addMovie = (data, history) => {
+    console.log("this is history", history)
   return (dispatch) => {
     //const sendableMovieData = {      Don't need to use this here bc attributes are only 1 word
       //title: data.title,             Will need to use this in the review action creator
@@ -20,9 +20,13 @@ export const addMovie = (data) => {
     })
     .then(response => response.json())
     //.then(console.log)
-    .then(movie => dispatch({type: 'ADD_MOVIE', payload: movie.data}))
-    
-  }
-
-  
+    .then(response => {
+      if (response.error) {
+        alert(response.error)
+      } else {
+        dispatch({type: 'ADD_MOVIE', payload: response.data})
+        history.push(`/movies/${response.data.id}`)
+      }
+    })  
+  }  
 }
