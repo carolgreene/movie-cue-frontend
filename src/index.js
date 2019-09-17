@@ -11,10 +11,11 @@ import moviesReducer from './reducers/moviesReducer.js'
 import {BrowserRouter as Router} from 'react-router-dom'
 
 
-/*const reducer = combineReducers({
-  moviesReducer: moviesReducer,
-  movieForm: movieForm          
-})*/
+//*const reducer = combineReducers({
+//  movies: moviesReducer,
+//  movieForm: movieForm          
+//})
+
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
