@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import {addMovie} from '../../actions/addMovie'  //had to do like this (../../) bc MovieForm is in  
                                                  //movies folder inside of the component
-                                                 
-                                   
+                 
+                                      
  class MovieForm extends Component {
   
   state = {
