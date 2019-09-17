@@ -1,5 +1,7 @@
 const initialState = {movies: []} //since this will be objects we pass key 
-                                  //of movies w/a value of an empty array
+                                 //of movies w/a value of an empty array
+
+
 export default function moviesReducer(state = initialState, action) {
   //debugger;
   switch (action.type) {
@@ -30,6 +32,7 @@ export default function moviesReducer(state = initialState, action) {
         }
       })
       return {...state, movies: moviesDelete}
+      
 
     default:
       return state
