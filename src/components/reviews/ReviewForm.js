@@ -5,6 +5,8 @@ import {addReview} from '../../actions/addReview';
 class ReviewForm extends Component {
 
   state = {
+    reviewerName: '',
+    reviewTitle: '',
     rating: '',
     comments: ''
   }
@@ -19,6 +21,8 @@ class ReviewForm extends Component {
     event.preventDefault() 
     this.props.addReview(this.state, this.props.movie.attributes.id)
     this.setState({
+      reviewerName: '',
+      reviewTitle: '',
       rating: '',
       comments: ''
     })
@@ -30,6 +34,20 @@ class ReviewForm extends Component {
       <div>
         <h4>Write Review</h4>
         <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            name="reviewerName"
+            placeholder="reviewer name"
+            value={this.state.reviewerName}
+            onChange={this.handleChange}
+          /><br/>
+          <input
+            type="text"
+            name="reviewTitle"
+            placeholder="reviewTitle"
+            value={this.state.reviewTitle}
+            onChange={this.handleChange}
+          /><br/>
           <input
             type="text"
             name="rating"
