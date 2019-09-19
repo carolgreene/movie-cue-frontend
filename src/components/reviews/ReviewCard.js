@@ -10,9 +10,9 @@ const ReviewCard = props => {
 
     return (    
       <div>
-        <p>Review</p>
-        <h2>{props.movie.attributes.title}</h2>
-        <li>{review.rating} Stars</li> 
+        <h4>{props.movie.attributes.title} Review</h4>
+        <li>{review.reviewer_name}</li>
+        <li>{review.review_title}  {review.rating} Stars</li> 
         <li>{review.comments}</li> 
       </div>     
     )
