@@ -6,7 +6,7 @@ const MovieCard = (props) => {
   console.log("props:", props)
   console.log("match:", props.match.params.id[0])
 
-  //let movie = props.movies.filter(movie => movie.id == props.match.params.id)[0]  //can use either this or below
+  //let movie = props.movies.filter(movie => movie.0id == props.match.params.id)[0]  //can use either this or below
                                                                                             //this finds movie based on id
     let movie = props.movie                                                                                        //returns an array w/just 1 movie in it
                                                                                             //that's why you need [0] so it will only
@@ -24,14 +24,15 @@ const MovieCard = (props) => {
       <li>{movie.attributes.description}</li>    
     
     <Link to={`/movies/${movie.id}/edit`}>Edit this Movie</Link>
+    {/*<h3>Reviews</h3>
     {movie.attributes.reviews.map(review =>
     <li key={review.id}>
-    <Link to={`/movies/${movie.id}/reviews/${review.id}`}>{review.rating} Stars</Link>
+    <Link to={`/movies/${movie.id}/reviews/${review.id}`}>{review.review_title} {review.rating} Stars</Link>
     </li>
     )
-  }
+  }*/}
     
-    {/*<ReviewsContainer movie={movie}/>   give ReviewsContainer the movie prop. Will then be given to the ReviewForm*/}
+    <ReviewsContainer movie={movie}/>   {/*give ReviewsContainer the movie prop. Will then be given to the ReviewForm*/}
     </div> :
     null
   )
