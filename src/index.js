@@ -9,7 +9,7 @@ import { Provider } from 'react-redux'
 //import movieForm from './reducers/movieForm.js'
 import moviesReducer from './reducers/moviesReducer.js'
 import {BrowserRouter as Router} from 'react-router-dom'
-
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 //*const reducer = combineReducers({
 //  movies: moviesReducer,
