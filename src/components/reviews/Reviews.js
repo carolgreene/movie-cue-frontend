@@ -1,6 +1,4 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {deleteReview} from '../../actions/deleteReview.js'
 import {Link} from 'react-router-dom'
 
 const Reviews = (props) => {
@@ -10,11 +8,6 @@ const reviews = props.reviews
 //console.log("reviews:",reviews)
 
 const movie = props.movie
-
-const handleDelete = (review, movie) => {  
-  props.deleteReview(review.id, movie.attributes.id)
-}
-
 
   return (
     <div>
@@ -27,4 +20,4 @@ const handleDelete = (review, movie) => {
   )
 }
 
-export default connect(null, {deleteReview})(Reviews)
+export default Reviews
