@@ -44,17 +44,17 @@ export const NavigationBar = () => (
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
-          <Nav.Item componentClass='span'>
+          <Nav.Item componentclass='span'>
             <Nav.Link>
                <Link to="/">Home</Link>
             </Nav.Link>
           </Nav.Item>
-          <Nav.Item componentClass='span'>
+          <Nav.Item componentclass='span'>
             <Nav.Link> 
               <Link to="/movies">Movies</Link>
             </Nav.Link>
           </Nav.Item>
-          <Nav.Item componentClass='span'>
+          <Nav.Item componentclass='span'>
             <Nav.Link>
               <Link to="/movies/new">Add Movie</Link>
             </Nav.Link>
