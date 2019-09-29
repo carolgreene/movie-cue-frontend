@@ -17,13 +17,16 @@ const MovieCard = (props) => {
                                                         //this finds movie based on index
   return (
     movie ?    
-    <div>
-      <h2>{movie.attributes.title}</h2>
-      <li>{movie.attributes.rating}</li>
-      <li>{movie.attributes.runtime}</li>
-      <li>{movie.attributes.description}</li>    
+    <div className="movieCard" style={{ backgroundColor: "lightGrey", width: "500px", minHeight: "200px" }}>
+      <h2 style={{ padding: "10px 20px", textAlign: "left", color: "black"}}>{movie.attributes.title}</h2>
+      <div className="list" style={{color: "black", padding: "10px 20px"}}>
+        <li>{movie.attributes.rating}</li>
+        <li>{movie.attributes.runtime}</li>
+        <li>{movie.attributes.description}</li>  
+      </div>  
     
     <Link to={`/movies/${movie.id}/edit`}>Edit this Movie</Link>
+    
     {/*<h3>Reviews</h3>
     {movie.attributes.reviews.map(review =>
     <li key={review.id}>
@@ -31,8 +34,9 @@ const MovieCard = (props) => {
     </li>
     )
   }*/}
-    
+    <div className="reviewsContainer" style={{ padding: "10px 20px"}}>
     <ReviewsContainer movie={movie}/>   {/*give ReviewsContainer the movie prop. Will then be given to the ReviewForm*/}
+    </div>
     </div> :
     null
   )
