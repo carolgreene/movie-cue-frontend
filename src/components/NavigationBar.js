@@ -26,7 +26,7 @@ const Styles = styled.div`
       color: white;
     }
     
-  }
+  }  
 `;
 
 {/*if styling gets messed up add info below to styling above. Seems ok now but just in case
