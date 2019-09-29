@@ -4,8 +4,9 @@ import React from 'react'
 const Home = () => {
   
   return (
-
-  <div>Welcome to Movie Cue</div>
+    <div className="home">
+      <h1>Welcome to Movie Cue</h1>
+    </div>
   )
 }
 
