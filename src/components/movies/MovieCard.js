@@ -17,7 +17,7 @@ const MovieCard = (props) => {
                                                         //this finds movie based on index
   return (
     movie ?    
-    <div className="movieCard" style={{ backgroundColor: "lightGrey", width: "500px", minHeight: "200px" }}>
+    <div className="movieCard" style={{ backgroundColor: "lightGrey", height: "100vh", minHeight: "100vh" }}>
       <h2 style={{ padding: "10px 20px", textAlign: "left", color: "black"}}>{movie.attributes.title}</h2>
       <div className="list" style={{color: "black", padding: "10px 20px"}}>
         <li>{movie.attributes.rating}</li>
