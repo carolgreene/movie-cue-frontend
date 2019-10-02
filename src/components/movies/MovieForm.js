@@ -37,10 +37,11 @@ import {addMovie} from '../../actions/addMovie'  //had to do like this (../../) 
 
   render() {
     return (
-      <div>
-        <h3>Enter Movie</h3>
+      <div className="movieForm" style={{ backgroundColor: "lightGrey", height: "100vh", minHeight: "100vh" }}>
+        <h3 style={{ padding: "10px 20px", textAlign: "left", color: "black"}}>Enter Movie</h3>
+        <div style={{color: "black", padding: "10px 20px"}}>
         <form onSubmit={this.handleSubmit}>
-          <input 
+          <input              
             type="text"
             name="title"
             placeholder="title"
@@ -78,6 +79,7 @@ import {addMovie} from '../../actions/addMovie'  //had to do like this (../../) 
 
           <input type="submit" />
         </form>
+        </div>
       </div>
     )
   }
