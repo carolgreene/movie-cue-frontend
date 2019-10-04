@@ -3,23 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore, applyMiddleware, compose } from 'redux'; 
+import { createStore, applyMiddleware, compose,combineReducers } from 'redux'; 
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux'
-//import movieForm from './reducers/movieForm.js'
+import movieForm from './reducers/movieForm.js'
 import moviesReducer from './reducers/moviesReducer.js'
 import {BrowserRouter as Router} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-//*const reducer = combineReducers({
-//  movies: moviesReducer,
-//  movieForm: movieForm          
-//})
+//below is causing problem. movies array bc movies.movies  for mapping. ck how to fix
+
+const reducer = combineReducers({
+  movies: moviesReducer,
+  movieForm: movieForm          
+})
 
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(moviesReducer, composeEnhancer(applyMiddleware(thunk)))  
+const store = createStore(reducer, composeEnhancer(applyMiddleware(thunk)))  
 
 ReactDOM.render(
 <Provider store={ store }>
