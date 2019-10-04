@@ -1,10 +1,10 @@
-{/*const initialState = {
+const initialState = {
   
   title: "",
   genre: "",
   rating: "",
-  description: "",
-  runtime: 0
+  runtime: "",
+  description: ""
 
   
 }
@@ -25,4 +25,3 @@ export default (state = initialState, action) => {
       return state
   }
 }
-*/}
