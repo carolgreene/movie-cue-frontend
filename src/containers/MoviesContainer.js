@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import MovieForm from '../components/movies/MovieForm';
 import Movies from '../components/movies/Movies';
 import { fetchMovies } from '../actions/fetchMovies'
-import  {BrowserRouter as Router, Route, Switch, NavLink } from 'react-router-dom'
+import  {BrowserRouter as Router, Route, withRouter, Switch, NavLink } from 'react-router-dom'
 import MovieCard from '../components/movies/MovieCard'
 import Home from '../components/Home'
 import Reviews from '../components/reviews/Reviews'
@@ -11,6 +11,10 @@ import ReviewCard from '../components/reviews/ReviewCard'
 import { NavigationBar } from '../components/NavigationBar'
 import { Layout } from '../components/Layout'
 import { Jumbotron } from '../components/Jumbotron'
+import NewMovieWrapper from './NewMovieWrapper'
+import EditMovieWrapper from './EditMovieWrapper'
+
+//import {setFormDataForEdit} from  '../actions/setFormDataForEdit'
 
 class MoviesContainer extends Component {
 
@@ -53,11 +57,13 @@ class MoviesContainer extends Component {
           <Switch>   {/* will match only the 1st matching route, not multiple routes. :id must be below new*/}
         
             <Route exact path='/' component={Home}/>
-            <Route path='/movies/new' component={MovieForm}/>  {/*router props are automatically passed when you use component*/}
+            <Route path='/movies/new' component={NewMovieWrapper}/>  {/*router props are automatically passed when you use component*/}
+            
             <Route exact path='/movies/:id/edit' render={props => {
               const movie = movies.find(movie => movie.id === props.match.params.id)
-              console.log(movie)
-              return <MovieForm movie={movie} {...props}/>
+              console.log("in the route", movie)
+                          
+              return <EditMovieWrapper movie={movie} {...props}/>
             }
           }/>
           {/*<Route exact path='/movies/:id' render={(routerProps) => <MovieCard {...routerProps} movies={this.props.movies}/>}/>*/}      
@@ -65,7 +71,8 @@ class MoviesContainer extends Component {
           {/*Howard did*/}
             <Route exact path='/movies/:id' render={props => {
               const movie = movies.find(movie => movie.id == props.match.params.id)
-              console.log("route:", movie)
+              console.log("in the route:", movie)
+
               return <MovieCard movie={movie} {...props} movies={this.props.movies}/>
             }
           }/>
@@ -104,4 +111,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { fetchMovies })(MoviesContainer)
+export default withRouter(connect(mapStateToProps, { fetchMovies })(MoviesContainer))
