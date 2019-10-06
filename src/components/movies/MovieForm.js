@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import {addMovie} from '../../actions/addMovie'  //had to do like this (../../) bc MovieForm is in  
+//import {addMovie} from '../../actions/addMovie'  //had to do like this (../../) bc MovieForm is in  
 import {updateMovieForm} from '../../actions/updateMovieForm'  
-import {resetMovieForm} from '../../actions/resetMovieForm'                                               //movies folder inside of the component
+//import {resetMovieForm} from '../../actions/resetMovieForm'                                               //movies folder inside of the component
                  
                                       
-const MovieForm = ({ formData, updateMovieForm, addMovie, resetMovieForm, history }) => {
+const MovieForm = ({ formData, updateMovieForm, history, handleSubmit, editMode }) => {
 
   const { title, genre, rating, runtime, description } = formData
 
@@ -18,20 +18,23 @@ const handleChange = (event) => {
 }                                                
                                               
 
-const handleSubmit = (event) => {
-  event.preventDefault()
-  return addMovie(formData, history).then(() => {
-    resetMovieForm()
-  })    
+//const handleSubmit = (event) => {
+//  event.preventDefault()
+//  return addMovie(formData, history).then(() => {
+//    resetMovieForm()
+//  })    
   
-}
+//}
 
 
   return (
     <div className="movieForm" style={{ backgroundColor: "lightGrey", height: "100vh", minHeight: "100vh" }}>
       <h3 style={{ padding: "10px 20px", textAlign: "left", color: "black"}}>Enter Movie</h3>
       <div style={{color: "black", padding: "10px 20px"}}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={event => {
+        event.preventDefault()
+        handleSubmit(formData, history)
+      }}>
         <input              
           type="text"
           name="title"
@@ -68,7 +71,10 @@ const handleSubmit = (event) => {
           onChange={handleChange}
         /><br/>
 
-        <input type="submit" />
+        <input 
+           type="submit" 
+           value={editMode ? "Update Movie" : "Create Movie"}  
+        />
       </form>
       </div>
     </div>
@@ -81,7 +87,7 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {updateMovieForm, addMovie, resetMovieForm})(MovieForm)
+export default connect(mapStateToProps, {updateMovieForm})(MovieForm)
 
 
 
