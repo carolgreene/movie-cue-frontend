@@ -1,3 +1,6 @@
+import { resetMovieForm } from './resetMovieForm'
+
+
 export const addMovie = (data, history) => {
     console.log("this is history", history)
   return (dispatch) => {
@@ -25,6 +28,7 @@ export const addMovie = (data, history) => {
         alert(response.error)
       } else {
         dispatch({type: 'ADD_MOVIE', payload: response.data})
+        dispatch(resetMovieForm())
         history.push(`/movies/${response.data.id}`)
       }
     })  
