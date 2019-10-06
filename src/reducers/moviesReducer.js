@@ -12,6 +12,10 @@ export default function moviesReducer(state = initialState, action) {
     console.log("reducer:", action.payload)
       return {...state, movies: [...state.movies, action.payload]}
 
+    case 'UPDATE_MOVIE':
+    console.log("reducer, update movie", action.payload)  
+      return state.movies.map(movie => movie.id === action.payload.movieId ? action.payload : movie)
+
     case 'ADD_REVIEW':
     console.log("reducer-add review:", action.payload)
       let movies = state.movies.map(movie => {
