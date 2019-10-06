@@ -20,8 +20,13 @@ export default (state = initialState, action) => {
     
     case 'RESET_MOVIE_FORM':
       return initialState
+    
 
+    case "SET_FORM_DATA_FOR_EDIT":
+      
+      return action.movieFormData
+      console.log("in reducer", action.movieFormData)
     default:
-      return state
+      return state  
   }
 }
