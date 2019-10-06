@@ -21,6 +21,7 @@ const MovieCard = (props) => {
       <h2 style={{ padding: "10px 20px", textAlign: "left", color: "black"}}>{movie.attributes.title}</h2>
       <div className="list" style={{color: "black", padding: "10px 20px"}}>
         <li>{movie.attributes.rating}</li>
+        <li>{movie.attributes.genre}</li>
         <li>{movie.attributes.runtime}</li>
         <li>{movie.attributes.description}</li>  
       </div>  
