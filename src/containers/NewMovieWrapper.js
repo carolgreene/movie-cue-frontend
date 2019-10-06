@@ -6,8 +6,8 @@ import { connect } from 'react-redux'
 const NewMovieWrapper = ({ history, addMovie }) => {
 
 
-    const handleSubmit = (event, formData, history) => {
-      event.preventDefault()
+    const handleSubmit = (formData, history) => {
+      //event.preventDefault()
       addMovie({
         ...formData}, 
         history)                //can also resetMovieForm here instead of in addMovie action creator by
