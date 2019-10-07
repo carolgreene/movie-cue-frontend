@@ -23,9 +23,9 @@ export default (state = initialState, action) => {
     
 
     case "SET_FORM_DATA_FOR_EDIT":
-      
+    console.log("in reducer", action.movieFormData)
       return action.movieFormData
-      console.log("in reducer", action.movieFormData)
+      
     default:
       return state  
   }
