@@ -30,6 +30,7 @@ export const updateMovie = (data, history) => {
       } else {
         dispatch({type: 'UPDATE_MOVIE', payload: response.data})
         //dispatch(resetMovieForm())
+        
         history.push(`/movies/${response.data.id}`)
       }
     })  
