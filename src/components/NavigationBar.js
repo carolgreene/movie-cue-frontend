@@ -4,11 +4,9 @@ import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
 
-
 const Styles = styled.div`
   .navbar {
-    background-color: #222;
-    
+    background-color: #222;    
   }
 
   .navbar-light .navbar-brand {
@@ -24,8 +22,7 @@ const Styles = styled.div`
     
     &:hover {
       color: white;
-    }
-    
+    }    
   }  
 `;
 

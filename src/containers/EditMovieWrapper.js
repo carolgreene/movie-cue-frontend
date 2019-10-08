@@ -5,8 +5,7 @@ import { setFormDataForEdit } from '../actions/setFormDataForEdit'
 import { connect } from 'react-redux'
 import { resetMovieForm } from '../actions/resetMovieForm'
 
-class EditMovieWrapper extends React.Component {      
-  
+class EditMovieWrapper extends React.Component {       
     
   componentDidMount(){
     console.log("in edit wrapper: history", this.props.history)
@@ -36,10 +35,7 @@ class EditMovieWrapper extends React.Component {
   render() {
     const {history, movie} = this.props
     return <MovieForm editMode handleSubmit={this.handleSubmit} /> 
-  } 
-        
-}  
-
-
+  }         
+} 
 
 export default connect(null, {updateMovie, setFormDataForEdit, resetMovieForm})(EditMovieWrapper)
