@@ -1,32 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-//import {addMovie} from '../../actions/addMovie'  //had to do like this (../../) bc MovieForm is in  
 import {updateMovieForm} from '../../actions/updateMovieForm'  
-//import {resetMovieForm} from '../../actions/resetMovieForm'                                               //movies folder inside of the component
-                 
-                                      
+                                              
 const MovieForm = ({ formData, updateMovieForm, history, handleSubmit, editMode }) => {
 
   const { title, genre, rating, runtime, description } = formData
 
-                                                  
+  const handleChange = (event) => {   
+    const {name, value} = event.target
+    updateMovieForm(name, value)  
+  }                                                                    
                                                 
-const handleChange = (event) => {   
-  const {name, value} = event.target
-  updateMovieForm(name, value)  
-  
-}                                                
-                                              
-
-//const handleSubmit = (event) => {
-//  event.preventDefault()
-//  return addMovie(formData, history).then(() => {
-//    resetMovieForm()
-//  })    
-  
-//}
-
-
   return (
     <div className="movieForm" style={{ backgroundColor: "lightGrey", height: "100vh", minHeight: "100vh" }}>
       <h3 style={{ padding: "10px 20px", textAlign: "left", color: "black"}}>Enter Movie</h3>
@@ -88,7 +72,15 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {updateMovieForm})(MovieForm)
+                          
+                                      
+   
+                                              
 
+
+
+
+  
 
 
 
