@@ -1,5 +1,5 @@
 export const setFormDataForEdit = movie => {
-    console.log("edit action", movie)
+  console.log("edit action", movie)
   const movieFormData = {
     title: movie.attributes.title,
     genre: movie.attributes.genre,

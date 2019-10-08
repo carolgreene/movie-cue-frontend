@@ -1,12 +1,9 @@
-const initialState = {
-  
+const initialState = {  
   title: "",
   genre: "",
   rating: "",
   runtime: "",
-  description: ""
-
-  
+  description: ""  
 }
 
 export default (state = initialState, action) => {
@@ -19,8 +16,7 @@ export default (state = initialState, action) => {
       return returnValue
     
     case 'RESET_MOVIE_FORM':
-      return initialState
-    
+      return initialState    
 
     case "SET_FORM_DATA_FOR_EDIT":
     console.log("in reducer", action.movieFormData)

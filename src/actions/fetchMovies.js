@@ -1,4 +1,4 @@
-export function fetchMovies() {
+export const fetchMovies = () => {
   return (dispatch) => {
     fetch('http://10.0.0.99:3001/api/v1/movies')   
     .then(r => r.json())
@@ -6,6 +6,5 @@ export function fetchMovies() {
       type: 'FETCH_MOVIES',
       payload: movies.data
     }))
-  }
-   
+  }   
 }
