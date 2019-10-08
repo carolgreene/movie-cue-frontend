@@ -25,8 +25,7 @@ class ReviewForm extends Component {
       reviewTitle: '',
       rating: '',
       comments: ''
-    })
-  
+    })  
   }
 
   render() {

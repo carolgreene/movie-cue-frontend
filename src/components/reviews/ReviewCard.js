@@ -3,9 +3,7 @@ import { connect } from 'react-redux'
 import { deleteReview } from '../../actions/deleteReview.js'
 
 const ReviewCard = props => {
-  //console.log("props-review card movie:", props.movie)
-  //console.log("reviewCard-review props", props.match.params.id)
-
+  
   const movie = props.movie
   const history = props.history
 
@@ -22,8 +20,7 @@ const ReviewCard = props => {
     let review = movie.attributes.reviews.filter(review => review.id == props.match.params.id)[0]
     console.log("ReviewCard review:", review)       
 
-    return ( 
-      
+    return (    
       <div className="movieCard" style={{ backgroundColor: "lightGrey", height: "100vh", minHeight: "100vh" }}>
       
         <h4 style={{ padding: "10px 20px", textAlign: "left", color: "black"}}>{movie.attributes.title} Review</h4>
