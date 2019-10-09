@@ -14,100 +14,57 @@ import { Jumbotron } from '../components/Jumbotron'
 import NewMovieWrapper from './NewMovieWrapper'
 import EditMovieWrapper from './EditMovieWrapper'
 
-//import {setFormDataForEdit} from  '../actions/setFormDataForEdit'
 
 class MoviesContainer extends Component {
-
   
 
   componentDidMount() {
     this.props.fetchMovies()
-
   }
   
   render() {
+    const { movies } = this.props     
 
-    {/*const renderMergedProps = (component, ...rest) => {
-      const finalProps = Object.assign({}, ...rest);
-      return (
-        React.createElement(component, finalProps)
-      );
-    }
-
-    const PropsRoute = ({ component, ...rest }) => {
-      return (
-        <Route {...rest} render={routeProps => {
-          return renderMergedProps(component, routeProps, rest);
-        }}/>
-      );
-    }*/}
-
-    const { movies } = this.props  //**ck this later to see if I can get Howard's way to work instead of getting movie w/in MC component
-    return (      
-    
+    return (       
       <React.Fragment>
         <Router>
           <NavigationBar />
-          <Jumbotron />
-            {/*  <NavLink exact to='/movies'>Movies |</NavLink>
-            <NavLink exact to='/movies/new'>Add Movie |</NavLink>
-            <NavLink exact to='/'>Home </NavLink>*/}
-        {/*</div>*/}
-         <Layout>
-          <Switch>   {/* will match only the 1st matching route, not multiple routes. :id must be below new*/}
-        
-            <Route exact path='/' component={Home}/>
-            <Route path='/movies/new' component={NewMovieWrapper}/>  {/*router props are automatically passed when you use component*/}
+          <Jumbotron />            
+          <Layout>
+            <Switch>   {/* will match only the 1st matching route, not multiple routes. :id must be below new*/}          
+              <Route exact path='/' component={Home}/>
+              <Route path='/movies/new' component={NewMovieWrapper}/>  {/*router props are automatically passed when you use component*/}
+              <Route exact path='/movies' render={(routerProps) => <Movies {...routerProps} movies={this.props.movies}/>}/>
+              <Route exact path='movies/:movie_id/reviews' component={Reviews}/>
+
+              <Route exact path='/movies/:id' render={props => {
+                const movie = movies.find(movie => movie.id == props.match.params.id)
+                return <MovieCard movie={movie} {...props} movies={this.props.movies}/>
+                }
+              }/>
+
+              <Route exact path='/movies/:id/edit' render={props => {
+                const movie = movies.find(movie => movie.id === props.match.params.id)
+                return <EditMovieWrapper movie={movie} {...props}/>
+                }
+              }/>           
             
-            <Route exact path='/movies/:id/edit' render={props => {
-              const movie = movies.find(movie => movie.id === props.match.params.id)
-              console.log("in the route", movie)
-                          
-              return <EditMovieWrapper movie={movie} {...props}/>
-            }
-          }/>
-          {/*<Route exact path='/movies/:id' render={(routerProps) => <MovieCard {...routerProps} movies={this.props.movies}/>}/>*/}      
-            <Route exact path='/movies' render={(routerProps) => <Movies {...routerProps} movies={this.props.movies}/>}/>
-          {/*Howard did*/}
-            <Route exact path='/movies/:id' render={props => {
-              const movie = movies.find(movie => movie.id == props.match.params.id)
-              console.log("in the route:", movie)
-
-              return <MovieCard movie={movie} {...props} movies={this.props.movies}/>
-            }
-          }/>
-          {/*<Route path='/movies/:id/reviews' render={(routerProps) => <MovieCard {...routerProps} movies={this.props.movies}/>}/>*/}
-            <Route exact path='/movies/:movie_id/reviews/:id' render={props => {
-              const matchingMovie = movies.find(movie => movie.id === props.match.params.movie_id)
-            {/*const matchingReview = matchingMovie.attributes.reviews.find(review => review.id === props.match.params.review.id)*/}
-              
-              console.log("matchingMovie", matchingMovie)             
-              return <ReviewCard movie={matchingMovie} {...props} movies={this.props.movies}/>
-            }
-        }/>
-           
-            {/*return <ReviewCard movie={movie} {...props} reviews={this.props.movie && this.props.movie.attributes.reviews}/>
-          }
-        }/>*/}
-          {/*<PropsRoute path='/movies/:movie_id/reviews/:id' component={ReviewCard} movies={this.props.movies}/>*/}
-        
-         {/*} <Route path='/movies/:movie_id/reviews/:id' render={routeProps => <ReviewCard {...routeProps} movies={movies}/>} />*/}
-            <Route exact path='movies/:movie_id/reviews' component={Reviews}/>
-        
-
-          </Switch>
-        </Layout>
-      </Router>
-    </React.Fragment>
-          
-      
+              <Route exact path='/movies/:movie_id/reviews/:id' render={props => {
+                const matchingMovie = movies.find(movie => movie.id === props.match.params.movie_id)              
+                return <ReviewCard movie={matchingMovie} {...props} movies={this.props.movies}/>
+                }
+              }/>         
+            </Switch>
+          </Layout>
+        </Router>
+      </React.Fragment>        
     )
   }
 }
 
 const mapStateToProps = state => {
   return {
-    movies: state.movies.movies,
+    movies: state.movies.movies
   }
 }
 
