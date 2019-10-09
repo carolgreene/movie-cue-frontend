@@ -11,24 +11,21 @@ import moviesReducer from './reducers/moviesReducer.js'
 import {BrowserRouter as Router} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-//below is causing problem. movies array bc movies.movies  for mapping. ck how to fix
 
 const reducer = combineReducers({
   movies: moviesReducer,
   movieForm: movieForm          
 })
 
-
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
 const store = createStore(reducer, composeEnhancer(applyMiddleware(thunk)))  
 
 ReactDOM.render(
-<Provider store={ store }>
-  <Router>
-    <App />
-  </Router>
-</Provider>, document.getElementById('root'));
+  <Provider store={ store }>
+    <Router>
+      <App />
+    </Router>
+  </Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
