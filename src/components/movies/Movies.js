@@ -9,7 +9,7 @@ const Movies = (props) => {
         <h2 style={{ padding: "10px 20px", textAlign: "left", color: "black"}}>Movies</h2>
 
         {props.movies.map(movie =>         
-          <li key={movie.id} style={{color: "black", padding: "10px 20px"}}>
+          <li key={movie.id} style={{color: "black"}}>
             <Link to={`/movies/${movie.id}`}>{movie.attributes.title}</Link>
           </li>)}      
       </div>    
