@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import {updateMovieForm} from '../../actions/updateMovieForm'  
+import {updateMovieForm} from '../../actions/updateMovieForm' 
                                               
 const MovieForm = ({ formData, updateMovieForm, history, handleSubmit, editMode }) => {
 
@@ -54,8 +54,9 @@ const MovieForm = ({ formData, updateMovieForm, history, handleSubmit, editMode 
           value={description}
           onChange={handleChange}
         /><br/>
-
-        <input 
+        <br/>
+        <input
+           style={{backgroundColor: "black", color: "white", fontSize: "14px", borderRadius: "6px", padding: "6px"}}   
            type="submit" 
            value={editMode ? "Update Movie" : "Create Movie"}  
         />
