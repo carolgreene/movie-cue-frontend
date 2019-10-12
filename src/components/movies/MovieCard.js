@@ -1,6 +1,7 @@
 import React from 'react';
 import ReviewsContainer from '../../containers/ReviewsContainer';
 import {Link} from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 
 const MovieCard = (props) => {
     
@@ -13,11 +14,18 @@ const MovieCard = (props) => {
       <div className="list" style={{color: "black", padding: "10px 20px"}}>
         <li>{movie.attributes.rating}</li>
         <li>{movie.attributes.genre}</li>
-        <li>{movie.attributes.runtime}</li>
+        <li>{movie.attributes.runtime} minutes</li>
         <li>{movie.attributes.description}</li>  
       </div>  
-    
-    <Link to={`/movies/${movie.id}/edit`}>Edit this Movie</Link>
+
+      <div style={{padding: "10px 20px"}}>
+        <Link to={`/movies/${movie.id}/edit`}>
+          <Button variant="dark" size="sm">
+            Edit Movie
+          </Button>
+        </Link>
+       
+      </div>
                                                  
     <div className="reviewsContainer" style={{ padding: "10px 20px"}}>
     <ReviewsContainer movie={movie}/>   {/*give ReviewsContainer the movie prop. Will then be given to the ReviewForm*/}
