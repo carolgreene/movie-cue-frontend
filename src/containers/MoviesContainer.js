@@ -28,8 +28,8 @@ class MoviesContainer extends Component {
     return (       
       <React.Fragment>
         <Router>
-          <NavigationBar />
-          <Jumbotron />            
+          <Jumbotron />
+          <NavigationBar />               
           <Layout>
             <Switch>   {/* will match only the 1st matching route, not multiple routes. :id must be below new*/}          
               <Route exact path='/' component={Home}/>
