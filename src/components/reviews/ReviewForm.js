@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {addReview} from '../../actions/addReview';
+import Button from 'react-bootstrap/Button'
 
 class ReviewForm extends Component {
 
@@ -31,7 +32,7 @@ class ReviewForm extends Component {
   render() {
     return (
       <div>
-        <h4>Write Review</h4>
+        <h4 style={{marginTop: "20px"}}>Write Review</h4>
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -61,8 +62,8 @@ class ReviewForm extends Component {
             value={this.state.comments}
             onChange={this.handleChange}
           /><br/>
-
-          <input type="submit" />
+          <br/>
+          <Button variant= "dark" size="sm" type="submit">Submit</Button>
         </form>
       </div>
     )
