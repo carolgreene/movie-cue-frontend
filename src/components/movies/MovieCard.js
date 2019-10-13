@@ -1,11 +1,20 @@
 import React from 'react';
+import {connect} from 'react-redux'
+import {deleteMovie} from '../../actions/deleteMovie'
 import ReviewsContainer from '../../containers/ReviewsContainer';
 import {Link} from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 
+
 const MovieCard = (props) => {
     
-  let movie = props.movie                                                                                 
+  let movie = props.movie 
+  let history = props.history  
+  
+  const handleDelete = (movie) => {  
+    props.deleteMovie(movie.attributes.id)
+    history.push(`/movies`)    
+  }
                                                                                     
   return (
     movie ?    
@@ -22,9 +31,9 @@ const MovieCard = (props) => {
         <Link to={`/movies/${movie.id}/edit`}>
           <Button variant="dark" size="sm">
             Edit Movie
-          </Button>
+          </Button>          
         </Link>
-       
+        <Button variant="danger" size="sm" title="delete" onClick={() => handleDelete(movie)}>Delete Movie</Button>         
       </div>
                                                  
     <div className="reviewsContainer" style={{ padding: "10px 20px"}}>
@@ -35,7 +44,6 @@ const MovieCard = (props) => {
   )  
 }
 
-export default MovieCard                                 
+export default connect(null, {deleteMovie})(MovieCard)                                
   
-    
     
