@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import MovieForm from '../components/movies/MovieForm';
 import Movies from '../components/movies/Movies';
 import { fetchMovies } from '../actions/fetchMovies'
-import  {BrowserRouter as Router, Route, withRouter, Switch, NavLink } from 'react-router-dom'
+import  {BrowserRouter as Router, Route, withRouter, Switch } from 'react-router-dom'
 import MovieCard from '../components/movies/MovieCard'
 import Home from '../components/Home'
 import Reviews from '../components/reviews/Reviews'
