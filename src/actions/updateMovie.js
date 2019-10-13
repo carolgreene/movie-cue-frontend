@@ -1,5 +1,3 @@
-import { resetMovieForm } from './resetMovieForm'
-
 export const updateMovie = (data, history) => {
     console.log("this is data", data)
     console.log("this is history", history)
