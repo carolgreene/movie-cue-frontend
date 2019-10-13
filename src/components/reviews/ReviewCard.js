@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { deleteReview } from '../../actions/deleteReview.js'
 import Button from 'react-bootstrap/Button'
-import ButtonToolbar from 'react-bootstrap/Button'
+
 
 const ReviewCard = props => {
   
@@ -30,14 +30,9 @@ const ReviewCard = props => {
           <li>{review.reviewer_name}</li>
           <li>{review.review_title}  {review.rating} Stars</li> 
           <li>{review.comments}</li> 
-        </div>
-
-        {/*use ButtonToolbar to group buttons together or className="float-right" to move one button to the right*/}
-        
-        <ButtonToolbar variant="outline-secondary">
-          <Button variant="dark" size="sm" title="return" onClick={() => handleBack(movie)}>Back To Movie</Button>
-          <Button variant="danger" size="sm" title="delete" onClick={() => handleDelete(review, movie)}>Delete Review</Button> 
-        </ButtonToolbar>     
+        </div>        
+          <Button variant="dark" size="sm" title="back" onClick={() => handleBack(movie)}>Back To Movie</Button>
+          <Button variant="danger" size="sm" title="delete" onClick={() => handleDelete(review, movie)}>Delete Review</Button>               
       </div>     
     )
   } else {
