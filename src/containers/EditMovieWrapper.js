@@ -8,7 +8,6 @@ import { resetMovieForm } from '../actions/resetMovieForm'
 class EditMovieWrapper extends React.Component {       
     
   componentDidMount(){
-    console.log("in edit wrapper: history", this.props.history)
     this.props.movie && this.props.setFormDataForEdit(this.props.movie)
   }
 
@@ -21,9 +20,7 @@ class EditMovieWrapper extends React.Component {
   }
 
   handleSubmit = (formData) => {
-    //console.log("IN HANDLE SUBMIT", history)
     const {updateMovie, movie, history} = this.props
-    console.log("IN HANDLE SUBMIT: HISTORY", history)
     updateMovie({
       ...formData,
       movieId: movie.id}, 
@@ -33,7 +30,6 @@ class EditMovieWrapper extends React.Component {
   } 
 
   render() {
-    const {history, movie} = this.props
     return <MovieForm editMode handleSubmit={this.handleSubmit} /> 
   }         
 } 
