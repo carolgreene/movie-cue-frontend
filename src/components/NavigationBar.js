@@ -26,20 +26,12 @@ const Styles = styled.div`
   }  
 `;
 
-{/*if styling gets messed up add info below to styling above. Seems ok now but just in case
-.navbar-nav span[role=button] {
-  padding: 15px;
-  display: inline-block;
-  line-height: 20px;
-}*/}
-
-
 export const NavigationBar = () => (
   <Styles>
     <Navbar expand="lg">
       <Navbar.Brand>Movie Cue</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-      <Navbar.Collapse id="basic-navbar-nav">
+       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
           <Nav.Item componentclass='span'>
             <Nav.Link>
