@@ -37,7 +37,7 @@ class MoviesContainer extends Component {
               <Route exact path='movies/:movie_id/reviews' component={Reviews}/>
 
               <Route exact path='/movies/:id' render={props => {
-                const movie = movies.find(movie => movie.id == props.match.params.id)
+                const movie = movies.find(movie => movie.id === props.match.params.id)
                 return <MovieCard movie={movie} {...props} movies={this.props.movies}/>
                 }
               }/>
