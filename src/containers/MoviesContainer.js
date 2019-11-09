@@ -33,12 +33,12 @@ class MoviesContainer extends Component {
             <Switch>   {/* will match only the 1st matching route, not multiple routes. :id must be below new*/}          
               <Route exact path='/' component={Home}/>
               <Route path='/movies/new' component={NewMovieWrapper}/>  {/*router props are automatically passed when you use component*/}
-              <Route exact path='/movies' render={(routerProps) => <Movies {...routerProps} movies={this.props.movies}/>}/>
+              <Route exact path='/movies' render={(routerProps) => <Movies {...routerProps} movies={movies}/>}/>
               <Route exact path='movies/:movie_id/reviews' component={Reviews}/>
 
               <Route exact path='/movies/:id' render={props => {
                 const movie = movies.find(movie => movie.id === props.match.params.id)
-                return <MovieCard movie={movie} {...props} movies={this.props.movies}/>
+                return <MovieCard movie={movie} {...props} movies={movies}/>
                 }
               }/>
 
@@ -50,7 +50,7 @@ class MoviesContainer extends Component {
             
               <Route exact path='/movies/:movie_id/reviews/:id' render={props => {
                 const matchingMovie = movies.find(movie => movie.id === props.match.params.movie_id)              
-                return <ReviewCard movie={matchingMovie} {...props} movies={this.props.movies}/>
+                return <ReviewCard movie={matchingMovie} {...props} movies={movies}/>
                 }
               }/>         
             </Switch>
