@@ -18,16 +18,14 @@ const MovieCard = (props) => {
                                                                                     
   return (
     movie ?    
-    <div className="movieCard" style={{ backgroundColor: "lightGrey", height: "100vh", minHeight: "100vh" }}>
-      <h2 style={{ padding: "10px 20px", textAlign: "left", color: "black"}}>{movie.attributes.title}</h2>
-      <div className="list" style={{color: "black", padding: "10px 20px"}}>
-        <li>{movie.attributes.rating}</li>
-        <li>{movie.attributes.genre}</li>
-        <li>{movie.attributes.runtime} minutes</li>
-        <li>{movie.attributes.description}</li>  
-      </div>  
+    <div className="movieCard" id="movieCard" >
+      <h2>{movie.attributes.title}</h2>
+      <li>{movie.attributes.rating}</li>
+      <li>{movie.attributes.genre}</li>
+      <li>{movie.attributes.runtime} minutes</li>
+      <li>{movie.attributes.description}</li>         
 
-      <div style={{padding: "10px 20px"}}>
+      <div className="button" >
         <Link to={`/movies/${movie.id}/edit`}>
           <Button variant="dark" size="sm">
             Edit Movie
@@ -36,9 +34,9 @@ const MovieCard = (props) => {
         <Button variant="danger" size="sm" title="delete" onClick={() => handleDelete(movie)}>Delete Movie</Button>         
       </div>
                                                  
-    <div className="reviewsContainer" style={{ padding: "10px 20px"}}>
-    <ReviewsContainer movie={movie}/>   {/*give ReviewsContainer the movie prop. Will then be given to the ReviewForm*/}
-    </div>
+      <div className="reviewsContainer" >
+        <ReviewsContainer movie={movie}/>   {/*give ReviewsContainer the movie prop. Will then be given to the ReviewForm*/}
+      </div>
     </div> :
     null
   )  

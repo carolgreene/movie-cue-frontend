@@ -12,9 +12,8 @@ const MovieForm = ({ formData, updateMovieForm, history, handleSubmit, editMode 
   }                                                                    
                                                 
   return (
-    <div className="movieForm" style={{ backgroundColor: "lightGrey", height: "100vh", minHeight: "100vh" }}>
-      <h3 style={{ padding: "10px 20px", textAlign: "left", color: "black"}}>Enter Movie</h3>
-      <div style={{color: "black", padding: "10px 20px"}}>
+    <div className="movieForm" id="movieForm" >
+      <h3>Enter Movie</h3>
       <form onSubmit={event => {
         event.preventDefault()
         handleSubmit(formData, history)
@@ -60,8 +59,7 @@ const MovieForm = ({ formData, updateMovieForm, history, handleSubmit, editMode 
            type="submit" 
            value={editMode ? "Update Movie" : "Create Movie"}  
         />
-      </form>
-      </div>
+      </form>      
     </div>
   )
 }

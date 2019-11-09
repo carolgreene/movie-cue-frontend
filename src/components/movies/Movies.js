@@ -1,17 +1,18 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 
+
 const Movies = (props) => {  
   
   if(props.movies) {
     return (    
-      <div className="movies" style={{ backgroundColor: "lightGrey", height: "100vh", minHeight: "100vh" }}>
-        <h2 style={{ padding: "10px 20px", textAlign: "left", color: "black"}}>Movies</h2>
+      <div className="movies" id="movies" >
+        <h2>Movies</h2>
 
-        {props.movies.map(movie =>         
-          <li key={movie.id} style={{color: "black"}}>
+        {props.movies.map(movie => 
+          <li key={movie.id} >
             <Link to={`/movies/${movie.id}`}>{movie.attributes.title}</Link>
-          </li>)}      
+          </li>)} 
       </div>    
     ) 
   }   

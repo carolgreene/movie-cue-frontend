@@ -26,5 +26,15 @@
   min-height: 100vh;   
 }
 
+.movieCard, .movies, .movieForm, .reviewCard {
+  background-color: lightGrey;
+  height: 100vh;
+  min-height: 100vh; 
+}
+
+#movieForm, #reviewCard, #movieCard, #movies, .button {
+  padding: 10px 20px;
+}
+
 
 

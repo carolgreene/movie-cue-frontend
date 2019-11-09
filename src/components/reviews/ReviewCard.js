@@ -23,16 +23,16 @@ const ReviewCard = props => {
     console.log("ReviewCard review:", review)       
 
     return (    
-      <div className="movieCard" style={{ backgroundColor: "lightGrey", height: "100vh", minHeight: "100vh" }}>
-      
-        <h4 style={{ padding: "10px 20px", textAlign: "left", color: "black"}}>{movie.attributes.title} Review</h4>
-        <div className="list" style={{color: "black", padding: "10px 20px"}}>
-          <li>{review.reviewer_name}</li>
-          <li>{review.review_title}  {review.rating} Stars</li> 
-          <li>{review.comments}</li> 
-        </div>        
+      <div className="reviewCard" id="reviewCard">      
+        <h4>{movie.attributes.title} Review</h4>
+        <li>{review.reviewer_name}</li>
+        <li>{review.review_title}  {review.rating} Stars</li> 
+        <li>{review.comments}</li> 
+         
+        <div className="button">       
           <Button variant="dark" size="sm" title="back" onClick={() => handleBack(movie)}>Back To Movie</Button>
-          <Button variant="danger" size="sm" title="delete" onClick={() => handleDelete(review, movie)}>Delete Review</Button>               
+          <Button variant="danger" size="sm" title="delete" onClick={() => handleDelete(review, movie)}>Delete Review</Button> 
+        </div>                
       </div>     
     )
   } else {
