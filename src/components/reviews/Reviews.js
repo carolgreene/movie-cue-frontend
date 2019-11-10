@@ -3,9 +3,8 @@ import {Link} from 'react-router-dom'
 
 const Reviews = (props) => {
 
-  const reviews = props.reviews
-  const movie = props.movie
-
+  const { reviews, movie } = props
+  
   return (
     <div>
       <h3>Reviews</h3>
