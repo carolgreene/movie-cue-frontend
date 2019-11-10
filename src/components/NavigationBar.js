@@ -9,6 +9,10 @@ const Styles = styled.div`
     background-color: #222;    
   }
 
+  .navbar-toggler {
+    background-color: #bbb;
+  }
+
   .navbar-light .navbar-brand {
     color: #bbb;
     
