@@ -6,11 +6,10 @@ import Button from 'react-bootstrap/Button'
 
 const ReviewCard = props => {
   
-  const movie = props.movie
-  const history = props.history
-
+  const { movie, history, deleteReview } = props
+  
   const handleDelete = (review, movie) => {  
-    props.deleteReview(review.id, movie.attributes.id)
+    deleteReview(review.id, movie.attributes.id)
     history.push(`/movies/${movie.attributes.id}`)    
   }
 
