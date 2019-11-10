@@ -7,12 +7,12 @@ import Button from 'react-bootstrap/Button'
 
 
 const MovieCard = (props) => {
+
+  //destructure props
+  const {movie, history, deleteMovie } = props
     
-  let movie = props.movie 
-  let history = props.history  
-  
   const handleDelete = (movie) => {  
-    props.deleteMovie(movie.attributes.id)
+    deleteMovie(movie.attributes.id)
     history.push(`/movies`)    
   }
                                                                                     
