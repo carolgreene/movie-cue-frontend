@@ -5,14 +5,14 @@ import { setFormDataForEdit } from '../actions/setFormDataForEdit'
 import { connect } from 'react-redux'
 import { resetMovieForm } from '../actions/resetMovieForm'
 
-class EditMovieWrapper extends React.Component {       
-    
+class EditMovieWrapper extends React.Component {     
+  
   componentDidMount(){
     this.props.movie && this.props.setFormDataForEdit(this.props.movie)
   }
 
   componentDidUpdate(prevProps) {
-    this.props.movie && !prevProps.movie &&this.props.setFormDataForEdit(this.props.movie)
+    this.props.movie && !prevProps.movie && this.props.setFormDataForEdit(this.props.movie)
   }
 
   componentWillUnmount() {
