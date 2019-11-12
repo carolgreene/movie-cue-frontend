@@ -42,6 +42,4 @@ const MovieCard = (props) => {
   )  
 }
 
-export default connect(null, {deleteMovie})(MovieCard)                                
-  
-    
+export default connect(null, {deleteMovie})(MovieCard)
