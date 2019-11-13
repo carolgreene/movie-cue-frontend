@@ -1,20 +1,40 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 
 
-const Movies = (props) => {  
+class Movies extends Component {  
+  constructor(props) {
+    super(props)
+    this.state = {
+      likes: 0
+    }
+  }
+
+  handleLikes = () => {
+    let newLikes = this.state.likes + 1
+    this.setState({
+      likes: newLikes
+    })
+  }
+
+  render() {
   
-  if(props.movies) {
-    return (    
-      <div className="movies" id="movies" >
-        <h2>Movies</h2>
+    if(this.props.movies) {
+      return (    
+        <div className="movies" id="movies" >
+          <h2>Movies</h2>
 
-        {props.movies.map(movie => 
-          <li key={movie.id} >
-            <Link to={`/movies/${movie.id}`}>{movie.attributes.title}</Link>
-          </li>)} 
-      </div>    
-    ) 
+          {this.props.movies.map(movie => 
+            <li key={movie.id} >
+              <Link to={`/movies/${movie.id}`}>{movie.attributes.title}</Link>
+              <Button size="sm" onClick={() => this.handleLikes()}>Likes: {this.state.likes}</Button>
+            </li>)} 
+        </div>    
+      )
+    } else {
+    return null 
+    }
   }   
 }
 
