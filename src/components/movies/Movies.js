@@ -5,8 +5,8 @@ import {Link} from 'react-router-dom'
 class Movies extends Component {  
 
   constructor(props) {
-  super(props)
-  this.state = { }
+    super(props)
+    this.state = { }
 
   }
   
