@@ -7,7 +7,6 @@ class Movies extends Component {
   constructor(props) {
     super(props)
     this.state = { }
-
   }
   
 
@@ -25,8 +24,7 @@ class Movies extends Component {
       [e.target.id]: newLikesCount
     })
     console.log("this.state[e.target.id]", this.state[e.target.id])
-    console.log("newLikes", newLikesCount)
-    
+    console.log("newLikes", newLikesCount)    
   }    
   
 
@@ -41,7 +39,7 @@ class Movies extends Component {
           {this.props.movies.map(movie => 
             <li key={movie.id} >
               <Link to={`/movies/${movie.id}`}>{movie.attributes.title}...</Link>
-              <button size="sm" id={movie.id} onClick={this.handleLikes}>Likes:{this.state[`${movie.id}`]|| 0} </button>  
+              <button size="sm" id={movie.id} onClick={this.handleLikes}>Like: {this.state[`${movie.id}`]|| 0} </button>  
             </li>)} 
         </div>    
       )
